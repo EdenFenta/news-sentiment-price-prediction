@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Project: FNS_PID Week 1 - Task 1
 
 ## Description:
