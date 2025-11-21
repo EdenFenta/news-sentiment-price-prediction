@@ -1,5 +1,5 @@
-import pandas as pd
 from src.data_prep import process_headlines
+import pandas as pd
 
 def test_headline_length_columns():
     sample = pd.DataFrame({
@@ -11,7 +11,7 @@ def test_headline_length_columns():
     })
 
     df = process_headlines(sample)
-    
+
     # Check that new columns exist
     assert "headline_length_chars" in df.columns
     assert "headline_length_tokens" in df.columns
