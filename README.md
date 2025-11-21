@@ -1,74 +1,80 @@
-# Project: FNS_PID Week 1 - Task 1
+# FNS_PID Week 1 - Task 1
 
-## Description:
-### Repository for Task 1: Data ingestion and EDA on financial news.
- echo "The goal is to clean, process, and analyze news headlines to extract insights on trends and publisher activity."
+## Description
+The goal is to clean, process, and analyze news headlines to extract insights on trends and publisher activity.
 
-# Folder Structure:
- echo ".vscode/               # VSCode settings"
- echo ".github/workflows/     # CI workflow (unittests.yml)"
- echo ".gitignore"
- echo "requirements.txt       # Python dependencies"
- echo "README.md"
- echo "src/                   # Source code"
-   echo "__init__.py"
-   echo "data_prep.py         # Data cleaning scripts"
-   echo "eda.py               # EDA helper functions"
-   echo "indicators.py        # (Task 2 later)"
-   echo "sentiment.py         # (Task 3 later)"
- echo "notebooks/             # Jupyter notebooks"
-   echo "01_eda.ipynb"
- echo "tests/                 # Unit tests"
-   echo "test_data_prep.py"
- echo "scripts/               # Optional scripts"
- echo "outputs/figs/          # Figures generated from EDA"
+## Folder Structure
+- `.vscode/`               # VSCode settings
+- `.github/workflows/`     # CI workflow (unittests.yml)
+- `.gitignore`
+- `requirements.txt`       # Python dependencies
+- `README.md`
+- `src/`                   # Source code
+  - `__init__.py`
+  - `data_prep.py`         # Data cleaning scripts
+  - `eda.py`               # EDA helper functions
+  - `indicators.py`        # (Task 2 later)
+  - `sentiment.py`         # (Task 3 later)
+- `notebooks/`             # Jupyter notebooks
+  - `01_eda.ipynb`
+- `tests/`                 # Unit tests
+  - `test_data_prep.py`
+- `scripts/`               # Optional scripts
+- `outputs/figs/`          # Figures generated from EDA
 
-# Getting Started:
+## Getting Started
+1. Clone repository:
+   ```
+   git clone <your_repo_url>
+   ```
 
-echo "1. Clone repository:"
-echo "   git clone <your_repo_url>"
+2. Create and activate virtual environment:
+   ```
+   python -m venv .venv
+   source .venv/bin/activate   # Mac/Linux
+   .venv\Scripts\activate      # Windows
+   ```
 
-echo "2. Create and activate virtual environment:"
-echo "   python -m venv .venv"
-echo "   source .venv/bin/activate   # Mac/Linux"
-echo "   .venv\\Scripts\\activate    # Windows"
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-echo "3. Install dependencies:"
-echo "   pip install -r requirements.txt"
+## Running Data Preparation
+4. Run data preparation script:
+   ```
+   python src/data_prep.py
+   ```
+   - Loads raw CSV from `data/raw/raw_analyst_ratings.csv`
+   - Cleans headlines and computes derived columns:
+     - `headline_length_chars`
+     - `headline_length_tokens`
+     - `headline_lower`
+     - `date_only`
+   - Saves cleaned data to `data/clean_news.parquet`
 
-# Running Data Preparation:
+## Running EDA
+5. Open notebook for EDA:
+   ```
+   jupyter notebook notebooks/01_eda.ipynb
+   ```
+   - Analyze headline lengths, publisher counts, daily trends
+   - Keyword extraction and optional topic modeling
+   - Save figures to `outputs/figs/`
 
-echo "4. Run data preparation script:"
-echo "   python src/data_prep.py"
-echo "   - Loads raw CSV from data/raw/raw_analyst_ratings.csv"
-echo "   - Cleans headlines and computes derived columns:"
-echo "       - headline_length_chars"
-echo "       - headline_length_tokens"
-echo "       - headline_lower"
-echo "       - date_only"
-echo "   - Saves cleaned data to data/clean_news.parquet"
+## Running Tests
+6. Run tests:
+   ```
+   export PYTHONPATH=.   # if imports fail
+   pytest tests/
+   ```
 
-# Running EDA:
-
-echo "5. Open notebook for EDA:"
-echo "   jupyter notebook notebooks/01_eda.ipynb"
-echo "   - Analyze headline lengths, publisher counts, daily trends"
-echo "   - Keyword extraction and optional topic modeling"
-echo "   - Save figures to outputs/figs/"
-
-# Running Tests:
-
-echo "6. Run tests:"
-echo "   export PYTHONPATH=.   # if imports fail"
-echo "   pytest tests/"
-
-# Git Workflow:
-
-echo "7. Git workflow:"
-echo "   git checkout -b task-1"
-echo "   git add ."
-echo "   git commit -m 'Task-1: data prep and EDA'"
-echo "   git push -u origin task-1"
-echo "   # Later create PR: task-1 -> main"
-
-# ==============================================
+## Git Workflow
+7. Git workflow:
+   ```
+   git checkout -b task-1
+   git add .
+   git commit -m 'Task-1: data prep and EDA'
+   git push -u origin task-1
+   # Later create PR: task-1 -> main
+   ```
